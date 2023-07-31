@@ -1,9 +1,9 @@
 class HomeController < ApplicationController
+  before_action :require_user, except: :index
+
   def index
     if current_user
       @user = User.find(session[:user_id])
-    else
-      redirect_to login_path
     end
   end
 end

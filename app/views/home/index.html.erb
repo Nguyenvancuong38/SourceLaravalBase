@@ -1,3 +1,7 @@
-<h1>Welcome <%= @user.email %></h1>
-
-<%= link_to 'Logout', logout_path, method: :delete %>
+<% if @user %>
+  <h1>Welcome <%= @user.email %></h1>
+  <%= link_to 'Logout', logout_path, method: :delete %>
+<% else %>
+  <h1>Welcome to the Home Page</h1>
+  <%= link_to 'Register', register_path %> | <%= link_to 'Login', login_path %>
+<% end %>
